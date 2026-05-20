@@ -20,9 +20,9 @@ Privacy boundary:
 - Hosted chat: only the retrieved chunks for each question are sent to the chat provider, not the whole corpus.
 - OneDrive Graph: files are downloaded from your OneDrive into this machine before indexing. If you use the locally synced OneDrive folder option, no Graph connection is needed.
 
-Important: when changing embedding provider or embedding model, use a fresh Chroma collection name or clear and rebuild the index. Different embedding models usually produce incompatible vectors.
+Important: when changing embedding provider or embedding model, re-index your documents so the stored vectors match the selected model. Different embedding models usually produce incompatible vectors.
 
-If Chroma reports an embedding function conflict after switching providers, change `Collection name` to a fresh value such as `local_documents_openai` and index the documents again. Deleting chunks from a collection does not always remove the collection's stored embedding configuration.
+If Chroma reports an embedding function conflict after switching providers, remove any manual `RAG_COLLECTION` override or change it to a fresh value, then index the documents again. Deleting chunks from a collection does not always remove the collection's stored embedding configuration.
 
 ## Architecture
 
